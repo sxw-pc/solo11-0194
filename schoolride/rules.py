@@ -11,6 +11,17 @@ def latest(events, kind):
 def decide(value,reason,*ids):
     return make_decision(value,reason,[x for x in ids if x])
 
+def promised_stop(student):
+    """Only a confirmed destination change replaces the original afternoon stop."""
+    if not student.get('change_confirmed'):
+        return student['stop']
+    change=student.get('changed_stop')
+    if isinstance(change,str) and change:
+        return change
+    if isinstance(change,dict) and change.get('stop'):
+        return change['stop']
+    return student['stop']
+
 def calculate(events):
     rosters=latest(events,'roster');routes=latest(events,'route');handoffs=latest(events,'handoff')
     out={};states=[]
@@ -23,23 +34,22 @@ def calculate(events):
         capacity=bool(v and not v.get('cancelled') and v['inspection_until']>=v['service_end'] and v['driver_cert_until']>=v['service_end'])
         seats=v['seats'] if capacity else 0
         route_stops=set(v.get('stops',[])) if v else set()
-        promised={sid:s for sid,s in valid.items() if s['stop'] in route_stops and
-                  (not s.get('changed_stop') or s.get('change_confirmed'))}
+        promised={sid:s for sid,s in valid.items() if promised_stop(s) in route_stops}
         admitted={sid:s for sid,s in sorted(promised.items())[:seats]}
         scans=defaultdict(list)
         for scan in h.get('scans',[]) if h else []: scans[scan['student_id']].append(scan)
         for sid,s in students.items():
             prefix=f'{run}/{sid}/'
             enrolled=sid in valid
-            stop_ok=s['stop'] in route_stops
+            destination=promised_stop(s)
             assigned=sid in admitted
             proxy=s.get('proxy')
             proxy_ok=bool(proxy and v and proxy['expires']>=v['service_end'] and
                           proxy.get('id_valid_until',proxy['expires'])>=v['service_end'] and
                           proxy.get('signed',True) and proxy['person']!=s['guardian'])
             boarded=[x for x in scans[sid] if x['stage']=='board' and x['monitor']==h.get('monitor') and x['stop']==s['stop'] and x.get('monitor_signed') and v and v['service_start']<=x['at']<=v['service_end']] if h else []
-            alighted=[x for x in scans[sid] if x['stage']=='alight' and x['stop']==s['stop'] and x.get('monitor_signed') and v and v['service_start']<=x['at']<=v['service_end']] if h else []
-            received=[x for x in scans[sid] if x['stage']=='receive' and x['person'] in {s['guardian'],proxy['person'] if proxy_ok else ''} and x['monitor']==h['monitor'] and x['stop']==s['stop'] and x.get('monitor_signed') and x.get('receiver_signed') and v and v['service_start']<=x['at']<=v['service_end']] if h else []
+            alighted=[x for x in scans[sid] if x['stage']=='alight' and x['stop']==destination and destination in route_stops and x.get('monitor_signed') and v and v['service_start']<=x['at']<=v['service_end']] if h else []
+            received=[x for x in scans[sid] if x['stage']=='receive' and x['person'] in {s['guardian'],proxy['person'] if proxy_ok else ''} and x['monitor']==h['monitor'] and x['stop']==destination and x.get('monitor_signed') and x.get('receiver_signed') and v and v['service_start']<=x['at']<=v['service_end']] if h else []
             chain=bool(assigned and boarded and alighted and received and boarded[0]['at']<alighted[0]['at']<received[0]['at'])
             custodian='guardian' if chain else 'carrier' if boarded else 'school'
             evidence=[x['id'] for x in (r,v,h) if x]

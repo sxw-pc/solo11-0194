@@ -3,7 +3,7 @@ from pathlib import Path
 from .store import connect,import_file,report,audit
 from . import __file__ as module_file
 IMPORTS={'roster-import':'roster','route-import':'route','handoff-import':'handoff'}
-DEMO=[('roster-import','roster-ok.json'),('route-import','route-ok.json'),('handoff-import','handoff-ok.json'),('roster-import','roster-bad.json'),('route-import','route-bad.json'),('handoff-import','handoff-bad.json')]
+DEMO=[('roster-import','roster-ok.json'),('route-import','route-ok.json'),('handoff-import','handoff-ok.json'),('roster-import','roster-bad.json'),('route-import','route-bad.json'),('handoff-import','handoff-bad.json'),('roster-import','roster-change.json'),('route-import','route-change.json'),('handoff-import','handoff-change.json')]
 def main(argv=None):
  p=argparse.ArgumentParser();p.add_argument('command',choices=[*IMPORTS,'demo','report','audit']);p.add_argument('--db',default='state.sqlite');p.add_argument('--file')
  a=p.parse_args(argv);db=connect(a.db)

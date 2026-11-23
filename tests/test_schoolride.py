@@ -111,6 +111,38 @@ class SchoolRideTests(unittest.TestCase):
         import_file(self.db, 'roster', target)
         self.assertEqual(self.decision('S1', '学籍时段是否覆盖乘车日'), '无资格')
 
+    def test_confirmed_stop_change_changes_route_and_custody(self):
+        for kind in ('roster', 'route', 'handoff'):
+            self.load(kind, f'{kind}-ok.json')
+        roster = json.loads((ROOT / 'fixtures' / 'roster-ok.json').read_text(encoding='utf-8'))
+        roster[0].update(id='R-CHANGE', version=3, effective_at='2026-11-24T16:00')
+        roster[0]['students'][0]['changed_stop'] = 'MUSEUM'
+        roster[0]['students'][0]['change_confirmed'] = True
+        target = Path(self.temp.name) / 'change.json'
+        target.write_text(json.dumps(roster), encoding='utf-8')
+        import_file(self.db, 'roster', target)
+        decisions = report(self.db)['decisions']
+        self.assertEqual(decisions['RUN1/线路绕行是否触及学生停靠站']['result'], '漏站')
+        self.assertEqual(self.decision('S1', '下车位置是否属于批准站点'), '错站或未下车')
+        self.assertEqual(self.decision('S1', '接领双签是否转移保管责任'), 'carrier')
+        route = json.loads((ROOT / 'fixtures' / 'route-ok.json').read_text(encoding='utf-8'))
+        route[0].update(id='V-CHANGE', version=3, effective_at='2026-11-24T16:10')
+        route[0]['stops'].append('MUSEUM')
+        target.write_text(json.dumps(route), encoding='utf-8')
+        import_file(self.db, 'route', target)
+        handoff = json.loads((ROOT / 'fixtures' / 'handoff-ok.json').read_text(encoding='utf-8'))
+        handoff[0].update(id='H-CHANGE', version=3, effective_at='2026-11-24T18:10')
+        for scan in handoff[0]['scans']:
+            if scan['student_id'] == 'S1' and scan['stage'] in ('alight', 'receive'):
+                scan['stop'] = 'MUSEUM'
+        target.write_text(json.dumps(handoff), encoding='utf-8')
+        import_file(self.db, 'handoff', target)
+        decisions = report(self.db)['decisions']
+        self.assertEqual(decisions['RUN1/线路绕行是否触及学生停靠站']['result'], '完整')
+        self.assertEqual(self.decision('S1', '下车位置是否属于批准站点'), '正确')
+        self.assertEqual(self.decision('S1', '接领双签是否转移保管责任'), 'guardian')
+        self.assertTrue(audit(self.db)['ok'])
+
 
 if __name__ == '__main__':
     unittest.main()

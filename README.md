@@ -10,3 +10,5 @@ python -m unittest discover -s tests -v
 ```
 
 单独采录可使用 `roster-import`、`route-import`、`handoff-import`，均传入 `--db` 和 `--file`。`fixtures/*-ok.json` 与 `fixtures/*-bad.json` 可分别复现正常和迟到异常；`report` 输出当前决策、证据 ID、实体状态与来源摘要。同哈希重放幂等，同事件 ID 异内容会使整个导入事务回滚。
+
+演示最后依次导入 `roster-change.json`、`route-change.json`、`handoff-change.json`：已确认的 MUSEUM 改站先使原线路漏站、下车和接领待核，线路补站与新扫描证据到达后恢复完整承诺及保管转移。早上上车仍按原站点，下午下车和接领按已确认的新站点。

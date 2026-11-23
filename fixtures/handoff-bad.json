@@ -1,0 +1,64 @@
+[
+  {
+    "id": "H2",
+    "kind": "handoff",
+    "run_id": "RUN1",
+    "version": 2,
+    "effective_at": "2026-11-24T18:10",
+    "monitor": "M1",
+    "scans": [
+      {
+        "student_id": "S1",
+        "stage": "board",
+        "stop": "GATE",
+        "at": "2026-11-24T07:30",
+        "monitor": "M1",
+        "monitor_signed": true
+      },
+      {
+        "student_id": "S1",
+        "stage": "alight",
+        "stop": "GATE",
+        "at": "2026-11-24T17:30",
+        "monitor": "M1",
+        "monitor_signed": true
+      },
+      {
+        "student_id": "S1",
+        "stage": "receive",
+        "stop": "GATE",
+        "at": "2026-11-24T17:31",
+        "monitor": "M1",
+        "person": "STRANGER",
+        "monitor_signed": true,
+        "receiver_signed": true
+      },
+      {
+        "student_id": "S2",
+        "stage": "board",
+        "stop": "PARK",
+        "at": "2026-11-24T07:35",
+        "monitor": "M1",
+        "monitor_signed": true
+      },
+      {
+        "student_id": "S2",
+        "stage": "alight",
+        "stop": "GATE",
+        "at": "2026-11-24T17:35",
+        "monitor": "M1",
+        "monitor_signed": true
+      },
+      {
+        "student_id": "S2",
+        "stage": "receive",
+        "stop": "PARK",
+        "at": "2026-11-24T17:36",
+        "monitor": "M1",
+        "person": "P3",
+        "monitor_signed": true,
+        "receiver_signed": true
+      }
+    ]
+  }
+]

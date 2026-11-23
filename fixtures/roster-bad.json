@@ -1,0 +1,40 @@
+[
+  {
+    "id": "R2",
+    "kind": "roster",
+    "run_id": "RUN1",
+    "version": 2,
+    "effective_at": "2026-11-24T17:00",
+    "service_date": "2026-11-24",
+    "students": [
+      {
+        "id": "S1",
+        "enrolled_until": "2026-12-31",
+        "stop": "GATE",
+        "guardian": "P1",
+        "route_authorization": {
+          "signed": true,
+          "valid_until": "2026-12-31"
+        },
+        "proxy": {
+          "person": "P2",
+          "expires": "2026-11-23T00:00",
+          "id_valid_until": "2026-11-30T23:59",
+          "signed": true
+        }
+      },
+      {
+        "id": "S2",
+        "enrolled_until": "2026-12-31",
+        "stop": "PARK",
+        "guardian": "P3",
+        "route_authorization": {
+          "signed": true,
+          "valid_until": "2026-12-31"
+        },
+        "changed_stop": true,
+        "change_confirmed": false
+      }
+    ]
+  }
+]

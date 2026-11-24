@@ -1,0 +1,10 @@
+{
+  "routes": [
+    {"id":"R1","students":2,"wheelchair":false,"start":"07:30"},
+    {"id":"R2","students":1,"wheelchair":true,"start":"07:35"}
+  ],
+  "vehicles": [
+    {"id":"BUS-A","seats":2,"wheelchair_lift":true},
+    {"id":"BUS-B","seats":2,"wheelchair_lift":false}
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "tanks": [
+    {
+      "id": "T-A",
+      "opening_liters": 300,
+      "capacity_liters": 600,
+      "pump": "P-A"
+    },
+    {
+      "id": "T-B",
+      "opening_liters": 90,
+      "capacity_liters": 400,
+      "pump": "P-B"
+    }
+  ],
+  "deliveries": [
+    {
+      "id": "D1",
+      "tank_id": "T-A",
+      "liters": 100,
+      "at": "2026-11-25T05:40",
+      "seal": "S1",
+      "ticket_status": "disputed"
+    }
+  ],
+  "dispenses": [
+    {
+      "id": "P1",
+      "tank_id": "T-A",
+      "liters": 80,
+      "at": "2026-11-25T05:50",
+      "bus": "BUS-1"
+    }
+  ],
+  "dips": [
+    {
+      "id": "M1",
+      "tank_id": "T-A",
+      "at": "2026-11-25T05:20",
+      "minimum_liters": 175,
+      "maximum_liters": 185,
+      "certified": true
+    }
+  ],
+  "runs": [
+    {
+      "id": "R-AM",
+      "bus": "BUS-1",
+      "tank_id": "T-A",
+      "depart_at": "2026-11-25T07:00",
+      "liters": 240
+    },
+    {
+      "id": "R-PM",
+      "bus": "BUS-2",
+      "tank_id": "T-B",
+      "depart_at": "2026-11-25T14:00",
+      "liters": 130
+    }
+  ],
+  "offers": [
+    {
+      "supplier": "SPOT",
+      "price_per_liter": 1.2,
+      "deliver_at": "2026-11-25T08:00",
+      "minimum_liters": 50,
+      "maximum_liters": 300
+    },
+    {
+      "supplier": "CONTRACT",
+      "price_per_liter": 1.6,
+      "deliver_at": "2026-11-25T06:15",
+      "minimum_liters": 100,
+      "maximum_liters": 300
+    }
+  ],
+  "contract": {
+    "supplier": "CONTRACT",
+    "remaining_take_or_pay_liters": 150,
+    "expiry": "2026-11-26T23:59"
+  },
+  "transfer": {
+    "from": "T-B",
+    "to": "T-A",
+    "liters": 60,
+    "at": "2026-11-25T06:20",
+    "metered": true
+  }
+}

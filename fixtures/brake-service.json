@@ -9,5 +9,7 @@
     {"id": "MECH-2", "brake_license_until": "2026-11-25T10:00:00"}
   ],
   "first_route_at": "2026-11-25T07:30:00",
+  "first_route_end": "2026-11-25T08:30:00",
+  "first_route_students": 20,
   "backup_vehicle": {"id": "BUS-B", "inspection_until": "2026-11-25T12:00:00", "driver_cert_until": "2026-11-25T12:00:00", "seats": 24}
 }

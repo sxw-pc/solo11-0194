@@ -1,0 +1,54 @@
+{
+  "bus": {
+    "id": "EV-1",
+    "ready_at": "2026-11-25T05:30",
+    "soc_kwh": 42,
+    "usable_kwh": 90
+  },
+  "route": {
+    "id": "AM-1",
+    "km": 48,
+    "kwh_per_km": 1.1,
+    "depart_at": "2026-11-25T07:30",
+    "return_at": "2026-11-25T09:00",
+    "reserve_kwh": 18
+  },
+  "chargers": [
+    {
+      "id": "C-FAST",
+      "kw": 90,
+      "available_at": "2026-11-25T05:30",
+      "tariff": 1.8
+    },
+    {
+      "id": "C-SLOW",
+      "kw": 30,
+      "available_at": "2026-11-25T05:30",
+      "tariff": 0.5
+    }
+  ],
+  "site_limit_kw": 100,
+  "other_load_kw": [
+    {
+      "from": "2026-11-25T05:30",
+      "to": "2026-11-25T06:30",
+      "kw": 45
+    }
+  ],
+  "weather_factor": 1.2,
+  "charger_loss_factor": 1.1,
+  "second_bus": {
+    "id": "EV-2",
+    "ready_at": "2026-11-25T05:30",
+    "soc_kwh": 50,
+    "usable_kwh": 90
+  },
+  "second_route": {
+    "id": "AM-2",
+    "km": 38,
+    "kwh_per_km": 1.2,
+    "depart_at": "2026-11-25T07:15",
+    "return_at": "2026-11-25T08:45",
+    "reserve_kwh": 20
+  }
+}

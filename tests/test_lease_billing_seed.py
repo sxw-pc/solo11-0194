@@ -8,5 +8,5 @@ def test_meter_swap_causes_negative_usage_and_zero_invoice():
     assert distance(f['readings'],'BUS-A') == -9860
     assert preview(f['contracts'],f['readings']) == [
         {'bus':'BUS-A','km':-9860,'overage_km':0,'overage_due':0},
-        {'bus':'BUS-B','km':200,'overage_km':0,'overage_due':0}]
+        {'bus':'BUS-B','km':450,'overage_km':150,'overage_due':750}]
     assert f['meter_swap']['signed'] is True

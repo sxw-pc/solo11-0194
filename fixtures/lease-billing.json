@@ -63,7 +63,7 @@
       "bus": "BUS-B",
       "meter": "B",
       "at": "2026-12-01T00:00",
-      "km": 2200
+      "km": 2450
     }
   ],
   "meter_swap": {
@@ -78,7 +78,7 @@
     "id": "POOL-1",
     "shared_unused_km": 100,
     "allocation_modes": [
-      "oldest_evidence_first",
+      "priority_BUS_A",
       "lowest_total_due"
     ],
     "locked_mode": null

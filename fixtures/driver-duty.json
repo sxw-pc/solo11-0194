@@ -1,0 +1,56 @@
+{
+  "service": {
+    "id": "AM-A",
+    "start": "2026-11-25T07:00",
+    "end": "2026-11-25T08:30",
+    "drive_minutes": 90,
+    "depot": "NORTH"
+  },
+  "next_service": {
+    "id": "AM-B",
+    "start": "2026-11-25T08:45",
+    "end": "2026-11-25T10:00",
+    "drive_minutes": 75,
+    "depot": "SOUTH"
+  },
+  "drivers": [
+    {
+      "id": "D1",
+      "cert_until": "2026-11-25T18:00",
+      "home_depot": "NORTH",
+      "shifts": [
+        {
+          "start": "2026-11-24T19:00",
+          "end": "2026-11-25T03:30",
+          "drive_minutes": 360,
+          "duty_minutes": 510
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "cert_until": "2026-11-25T18:00",
+      "home_depot": "SOUTH",
+      "shifts": [
+        {
+          "start": "2026-11-24T21:00",
+          "end": "2026-11-25T03:00",
+          "drive_minutes": 270,
+          "duty_minutes": 360
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "cert_until": "2026-11-25T18:00",
+      "home_depot": "NORTH",
+      "shifts": []
+    }
+  ],
+  "max_duty_minutes_rolling_24h": 600,
+  "min_continuous_rest_minutes": 180,
+  "travel_minutes": {
+    "NORTH-SOUTH": 35,
+    "SOUTH-NORTH": 35
+  }
+}

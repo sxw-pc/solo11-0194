@@ -1,0 +1,19 @@
+[
+  {
+    "id": "V1",
+    "kind": "route",
+    "run_id": "RUN1",
+    "version": 1,
+    "effective_at": "2026-11-24T07:10",
+    "service_start": "2026-11-24T07:00",
+    "service_end": "2026-11-24T18:00",
+    "inspection_until": "2026-11-30T00:00",
+    "driver_cert_until": "2026-11-30T00:00",
+    "seats": 2,
+    "stops": [
+      "GATE",
+      "PARK"
+    ],
+    "cancelled": false
+  }
+]

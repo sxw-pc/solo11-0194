@@ -1,0 +1,68 @@
+{
+  "buses": [
+    {
+      "id": "BUS-H",
+      "tyre_size": "275/70R22.5",
+      "min_load_index": 150,
+      "service_km": 140
+    },
+    {
+      "id": "BUS-L",
+      "tyre_size": "275/70R22.5",
+      "min_load_index": 140,
+      "service_km": 50
+    }
+  ],
+  "tyres": [
+    {
+      "id": "T1",
+      "size": "275/70R22.5",
+      "load_index": 155,
+      "tread_mm": 5.0,
+      "pattern": "ALL",
+      "quarantined": false
+    },
+    {
+      "id": "T2",
+      "size": "275/70R22.5",
+      "load_index": 155,
+      "tread_mm": 5.2,
+      "pattern": "ALL",
+      "quarantined": false
+    },
+    {
+      "id": "T3",
+      "size": "275/70R22.5",
+      "load_index": 155,
+      "tread_mm": 7.0,
+      "pattern": "ALL",
+      "quarantined": false
+    },
+    {
+      "id": "T4",
+      "size": "275/70R22.5",
+      "load_index": 155,
+      "tread_mm": 7.2,
+      "pattern": "ALL",
+      "quarantined": false
+    },
+    {
+      "id": "T5",
+      "size": "275/70R22.5",
+      "load_index": 143,
+      "tread_mm": 6.0,
+      "pattern": "ALL",
+      "quarantined": false
+    },
+    {
+      "id": "T6",
+      "size": "275/70R22.5",
+      "load_index": 143,
+      "tread_mm": 6.1,
+      "pattern": "ALL",
+      "quarantined": false
+    }
+  ],
+  "max_same_axle_tread_delta_mm": 0.5,
+  "service_date": "2026-11-25"
+}

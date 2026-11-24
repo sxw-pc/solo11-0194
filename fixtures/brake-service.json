@@ -1,0 +1,12 @@
+{
+  "inspection": {"vehicle": "BUS-A", "at": "2026-11-25T05:30:00", "brake_lining_mm": [2.7, 3.8], "sensor_error_mm": 0.2},
+  "parts": [
+    {"id": "AXLE-1", "type": "axle_assembly", "available_at": "2026-11-25T07:15:00"},
+    {"id": "PADS-1", "type": "pads", "available_at": "2026-11-25T05:30:00"}
+  ],
+  "technicians": [
+    {"id": "MECH-1", "brake_license_until": "2026-11-25T09:00:00"},
+    {"id": "MECH-2", "brake_license_until": "2026-11-25T10:00:00"}
+  ],
+  "first_route_at": "2026-11-25T07:30:00"
+}

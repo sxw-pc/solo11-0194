@@ -1,0 +1,93 @@
+{
+  "period": {
+    "from": "2026-11-01T00:00",
+    "to": "2026-12-01T00:00",
+    "account": "SCHOOL-FLEET"
+  },
+  "contracts": [
+    {
+      "bus": "BUS-A",
+      "included_km": 300,
+      "rate_per_km": 3,
+      "pool": "POOL-1",
+      "lease_from": "2026-11-01T00:00",
+      "lease_to": "2026-12-01T00:00"
+    },
+    {
+      "bus": "BUS-B",
+      "included_km": 300,
+      "rate_per_km": 5,
+      "pool": "POOL-1",
+      "lease_from": "2026-11-01T00:00",
+      "lease_to": "2026-12-01T00:00"
+    }
+  ],
+  "readings": [
+    {
+      "id": "A0",
+      "bus": "BUS-A",
+      "meter": "OLD-A",
+      "at": "2026-11-01T00:00",
+      "km": 10000
+    },
+    {
+      "id": "A1",
+      "bus": "BUS-A",
+      "meter": "OLD-A",
+      "at": "2026-11-15T00:00",
+      "km": 10360
+    },
+    {
+      "id": "A2",
+      "bus": "BUS-A",
+      "meter": "NEW-A",
+      "at": "2026-11-15T00:00",
+      "km": 0
+    },
+    {
+      "id": "A3",
+      "bus": "BUS-A",
+      "meter": "NEW-A",
+      "at": "2026-12-01T00:00",
+      "km": 140
+    },
+    {
+      "id": "B0",
+      "bus": "BUS-B",
+      "meter": "B",
+      "at": "2026-11-01T00:00",
+      "km": 2000
+    },
+    {
+      "id": "B1",
+      "bus": "BUS-B",
+      "meter": "B",
+      "at": "2026-12-01T00:00",
+      "km": 2200
+    }
+  ],
+  "meter_swap": {
+    "bus": "BUS-A",
+    "old_meter": "OLD-A",
+    "new_meter": "NEW-A",
+    "at": "2026-11-15T00:00",
+    "work_order": "W-17",
+    "signed": true
+  },
+  "pool": {
+    "id": "POOL-1",
+    "shared_unused_km": 100,
+    "allocation_modes": [
+      "oldest_evidence_first",
+      "lowest_total_due"
+    ],
+    "locked_mode": null
+  },
+  "invoice": {
+    "id": "NOV-1",
+    "issued_at": "2026-12-02T09:00",
+    "bus": "BUS-A",
+    "amount": 0,
+    "immutable": true
+  }
+}

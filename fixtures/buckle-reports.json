@@ -1,0 +1,8 @@
+{
+  "manifest": ["S1", "S2"],
+  "reports": [
+    {"id":"B1","seat":"A1","sensor":"X1","latched":true,"at":"07:55"},
+    {"id":"B2","seat":"A1","sensor":"X1-proxy","latched":true,"at":"07:55"}
+  ],
+  "occupied_seats": {"A1":"S1","A2":"S2"}
+}

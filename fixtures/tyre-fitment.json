@@ -1,4 +1,6 @@
 {
+  "schema": "schoolride.tyre-fitment/v2",
+  "fitment_id": "FITMENT-2026-11-25-AM",
   "buses": [
     {
       "id": "BUS-H",
@@ -64,5 +66,171 @@
     }
   ],
   "max_same_axle_tread_delta_mm": 0.5,
-  "service_date": "2026-11-25"
+  "minimum_tread_mm": 4.0,
+  "tread_wear_mm_per_km": 0.0001,
+  "pattern_compatibility_groups": [
+    ["ALL"],
+    ["STEER-A", "STEER-A2"],
+    ["DRIVE-D", "DRIVE-D2"]
+  ],
+  "service_date": "2026-11-25",
+  "wheel_positions": [
+    {
+      "position_id": "BUS-H/front/left",
+      "bus": "BUS-H",
+      "axle": "front",
+      "side": "left",
+      "pair_key": "BUS-H/front"
+    },
+    {
+      "position_id": "BUS-H/front/right",
+      "bus": "BUS-H",
+      "axle": "front",
+      "side": "right",
+      "pair_key": "BUS-H/front"
+    },
+    {
+      "position_id": "BUS-L/front/left",
+      "bus": "BUS-L",
+      "axle": "front",
+      "side": "left",
+      "pair_key": "BUS-L/front"
+    },
+    {
+      "position_id": "BUS-L/front/right",
+      "bus": "BUS-L",
+      "axle": "front",
+      "side": "right",
+      "pair_key": "BUS-L/front"
+    }
+  ],
+  "initial_locations": {
+    "T1": "STOCK-H-01",
+    "T2": "STOCK-H-02",
+    "T3": "STOCK-H-03",
+    "T4": "STOCK-H-04",
+    "T5": "STOCK-L-01",
+    "T6": "STOCK-L-02"
+  },
+  "measurements": [
+    {
+      "measurement_id": "M-T1-0900",
+      "tyre_id": "T1",
+      "tread_mm": 5.0,
+      "measured_at": "2026-11-24T09:00",
+      "recorded_at": "2026-11-24T09:05",
+      "source": "handheld-gauge",
+      "note": "早班原始读数，必须保留"
+    },
+    {
+      "measurement_id": "M-T2-0901",
+      "tyre_id": "T2",
+      "tread_mm": 5.2,
+      "measured_at": "2026-11-24T09:01",
+      "recorded_at": "2026-11-24T09:06",
+      "source": "handheld-gauge"
+    },
+    {
+      "measurement_id": "M-T3-0902",
+      "tyre_id": "T3",
+      "tread_mm": 7.0,
+      "measured_at": "2026-11-24T09:02",
+      "recorded_at": "2026-11-24T09:07",
+      "source": "handheld-gauge"
+    },
+    {
+      "measurement_id": "M-T4-0903",
+      "tyre_id": "T4",
+      "tread_mm": 7.2,
+      "measured_at": "2026-11-24T09:03",
+      "recorded_at": "2026-11-24T09:08",
+      "source": "handheld-gauge"
+    },
+    {
+      "measurement_id": "M-T5-0904",
+      "tyre_id": "T5",
+      "tread_mm": 6.0,
+      "measured_at": "2026-11-24T09:04",
+      "recorded_at": "2026-11-24T09:09",
+      "source": "handheld-gauge"
+    },
+    {
+      "measurement_id": "M-T6-0905",
+      "tyre_id": "T6",
+      "tread_mm": 6.1,
+      "measured_at": "2026-11-24T09:05",
+      "recorded_at": "2026-11-24T09:10",
+      "source": "handheld-gauge"
+    }
+  ],
+  "work_orders": [
+    {
+      "id": "WO-H",
+      "bus": "BUS-H",
+      "axle": "front",
+      "sequence": 1,
+      "title": "BUS-H 前轴换胎（140 km 长途班次）"
+    },
+    {
+      "id": "WO-L",
+      "bus": "BUS-L",
+      "axle": "front",
+      "sequence": 2,
+      "title": "BUS-L 前轴换胎（50 km 短途班次）"
+    }
+  ],
+  "route_evidence": [
+    {
+      "id": "V-H-20261125",
+      "kind": "route",
+      "run_id": "RUN-H",
+      "bus": "BUS-H",
+      "version": 1,
+      "effective_at": "2026-11-24T16:00",
+      "service_start": "2026-11-25T06:00",
+      "service_end": "2026-11-25T18:00",
+      "inspection_until": "2026-11-30T00:00",
+      "driver_cert_until": "2026-11-30T00:00",
+      "seats": 40,
+      "stops": [],
+      "cancelled": false
+    },
+    {
+      "id": "V-L-20261125",
+      "kind": "route",
+      "run_id": "RUN-L",
+      "bus": "BUS-L",
+      "version": 1,
+      "effective_at": "2026-11-24T16:05",
+      "service_start": "2026-11-25T07:00",
+      "service_end": "2026-11-25T17:00",
+      "inspection_until": "2026-11-30T00:00",
+      "driver_cert_until": "2026-11-30T00:00",
+      "seats": 36,
+      "stops": [],
+      "cancelled": false
+    }
+  ],
+  "reference_plans": [
+    {
+      "plan_id": "A",
+      "aliases": ["甲", "PLAN-A", "方案甲"],
+      "assignments": {
+        "BUS-H": ["T1", "T2"],
+        "BUS-L": ["T5", "T6"]
+      },
+      "spares": ["T3", "T4"],
+      "note": "方案甲：浅纹高载重胎先上长途高要求车，深纹 T3/T4 留作未来高载重备胎"
+    },
+    {
+      "plan_id": "B",
+      "aliases": ["乙", "PLAN-B", "方案乙"],
+      "assignments": {
+        "BUS-H": ["T3", "T4"],
+        "BUS-L": ["T5", "T6"]
+      },
+      "spares": ["T1", "T2"],
+      "note": "方案乙：深纹高载重胎直接上 BUS-H，浅纹 T1/T2 留库；T1 复测 3.5 mm 后只有本方案仍可执行"
+    }
+  ]
 }
